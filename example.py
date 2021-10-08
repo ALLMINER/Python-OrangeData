@@ -8,7 +8,7 @@ def main():
     config = {
         'inn': '3123011520',
         'api_url': 'https://apip.orangedata.ru:2443',
-        'sign_pkey': 'private_key.pem',
+        'sign_private_key': './private_key.pem',
         'client_key': 'client.key',
         'client_cert': 'client.crt',
     }
