@@ -1,18 +1,23 @@
 from datetime import datetime
 from decimal import Decimal
-date_now = datetime.now()
+
+from client import OrangeDataClient
 
 
+def main():
+    config = {
+        'inn': '3123011520',
+        'api_url': 'https://apip.orangedata.ru:2443',
+        'sign_private_key': './private_key.pem',
+        'client_key': 'client.key',
+        'client_cert': 'client.crt',
+    }
 
+    client = OrangeDataClient(**config)
 
-inn= '3123011520',
-api_url ='https://apip.orangedata.ru:2443',
-sign_private_key = './private_key.pem',
-client_key ='client.key',
-client_cert = 'client.crt'
-order_id = str(date_now)
-print(date_now)
-"""'''  client.create_order(order_number, 1, 'example@example.com', 1, 'main', '3123011520')
+    order_number = 'teleport-201810181602'
+
+    client.create_order(order_number, 1, 'example@example.com', 1, 'main', '3123011520')
 
     client.add_position_to_order(6.123456, Decimal('10.'), 1, 'matches', 1, 10)
     client.add_position_to_order(7, Decimal(10), 1, 'matches2', 4, 10)
@@ -95,4 +100,3 @@ print(date_now)
 
 if __name__ == '__main__':
     main()
-'''"""
